@@ -9,14 +9,20 @@
 
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
-	if (node == NULL)
+	binary_tree_t *tmp = malloc(sizeof(binary_tree_t));
+
+	if (tmp == NULL)
+		return (NULL);
+	else if (node == NULL)
 		return (NULL);
 	else if (node->parent == NULL)
 		return (NULL);
-	if (node->left != NULL)
-		return (node->left);
-	else if (node->right != NULL)
-		return (node->right);
+	tmp = node->parent;
+
+	if ((tmp->right == node) && (tmp->left != NULL))
+		return (tmp->left);
+	else if ((tmp->left == node) && (tmp->right != NULL))
+		return (tmp->right);
 	else
 		return (NULL);
 }
