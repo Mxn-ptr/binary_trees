@@ -37,7 +37,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 		return (NULL);
 
 	if (paternity_test != NULL)
-		return paternity_test;
+		return (paternity_test);
 	else
 		return (NULL);
 
