@@ -38,9 +38,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	if (height == 1)
+	if (height == 0)
 		return (1);
-	else if ((height > 1) && (height == height -1))
+	if (root->left == NULL || root->right == NULL)
+		    return (0);
+	else if ((height > 0) && (height == height -1))
 		if (tree->left != tree->right)
 			return (binary_tree_is_perfect(tree->left) && binary_tree_is_perfect(tree->right));
 	return (1);
